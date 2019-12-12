@@ -8,6 +8,7 @@ resource "github_repository" "main" {
 
   homepage_url = var.homepage_url
   private      = var.private
+  archived     = var.archived
   topics       = var.topics
 
   has_issues    = var.private ? false : true

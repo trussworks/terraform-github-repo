@@ -15,6 +15,12 @@ variable "private" {
   type        = bool
 }
 
+variable "archived" {
+  description = " Specifies if the repository should be archived."
+  default     = false
+  type        = bool
+}
+
 variable "repo_name" {
   description = "The name of the repository"
   type        = string
