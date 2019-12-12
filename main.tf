@@ -25,7 +25,9 @@ resource "github_branch_protection" "main" {
   }
 
   lifecycle {
-    ignore_changes = ["required_status_checks.0.contexts"]
+    ignore_changes = [
+      required_status_checks.0.contexts
+    ]
   }
 }
 
