@@ -20,8 +20,18 @@ resource "github_branch_protection" "main" {
   repository = github_repository.main.name
   branch     = local.default_branch
 
+  enforce_admins = false
+
   required_status_checks {
     strict = var.status_checks_strict
+  }
+
+  required_pull_request_reviews {
+    dismiss_stale_reviews           = false
+    dismissal_teams                 = []
+    dismissal_users                 = []
+    require_code_owner_reviews      = false
+    required_approving_review_count = 1
   }
 
   lifecycle {
