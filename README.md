@@ -1,41 +1,41 @@
-# Truss Terraform Module template
+Set up a github repository with standard config.
 
-This repository is meant to be a template repo we can just spin up new module repos from with our general format.
-
-## Creating a new Terraform Module
-
-1. Clone this repo, renaming appropriately.
-1. Write your terraform code in the root dir.
-1. Create an example of the module in use in the `examples` dir.
-1. Ensure you've completed the [Developer Setup](#developer-setup).
-1. Write terratests in the `test` dir.
-1. [With slight modification from the Terratest docs](https://github.com/gruntwork-io/terratest#setting-up-your-project): In the root dir, run `go mod init MODULE_NAME` to get a new go.mod file. Then run `go mod tidy` to download terratest.
-1. Run your tests to ensure they work as expected using instructions below.
-
-## Actual readme below  - Delete above here
-
-Please put a description of what this module does here
-
-## Terraform Versions
-
-_This is how we're managing the different versions._
-Terraform 0.12. Pin module version to ~> 2.0. Submit pull-requests to master branch.
-
-Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform011 branch.
+Limited options are provided as this module is for configuring a repository using opinionated settings. If more control is needed, use the [terraform github_repository](https://www.terraform.io/docs/providers/github/r/repository.html) directly.
 
 ## Usage
 
-### Put an example usage of the module here
-
 ```hcl
-module "example" {
-  source = "terraform/registry/path"
+module "github_terraform_aws_ecs_service" {
+  source       = "trussworks/repo/github"
 
-  <variables>
+  repo_name    = "terraform-aws-ecs-service"
+  description  = "Creates an ECS Service."
+  homepage_url = "https://registry.terraform.io/modules/trussworks/ecs-service/aws"
+
+  topics = [
+    "terraform",
+    "terraform-modules",
+    "aws-ecs",
+    "ecs",
+    "ecs-service",
+  ]
+
+  private             = false
+  status_check_strict = true
 }
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| description | A description of the repository | string | n/a | yes |
+| homepage\_url | URL of a page describing the project | string | `""` | no |
+| private | Set to true to create a private repository. Repositories are created as private by default | bool | `"true"` | no |
+| repo\_name | The name of the repository | string | n/a | yes |
+| status\_check\_strict | Require branches to be up to date before merging | bool | `"true"` | no |
+| topics | The list of topics for the repository | list(string) | `[]` | no |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
@@ -45,20 +45,9 @@ Install dependencies (macOS)
 
 ```shell
 brew install pre-commit go terraform terraform-docs
+pre-commit install --install-hooks
 ```
 
-### Testing
+### Accessing the GitHub API
 
-[Terratest](https://github.com/gruntwork-io/terratest) is being used for
-automated testing with this module. Tests in the `test` folder can be run
-locally by running the following command:
-
-```text
-make test
-```
-
-Or with aws-vault:
-
-```text
-AWS_VAULT_KEYCHAIN_NAME=<NAME> aws-vault exec <PROFILE> -- make test
-```
+Set `GITHUB_TOKEN` environment variable. See the [terraform github provider token docs](https://www.terraform.io/docs/providers/github/index.html#token). You will need to [create a github personal access token](https://github.com/settings/tokens/new) with "Full control of private repositories" access scope.
