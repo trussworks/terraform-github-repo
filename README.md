@@ -34,7 +34,7 @@ module "github_terraform_aws_ecs_service" {
 | homepage\_url | URL of a page describing the project | string | `""` | no |
 | private | Set to true to create a private repository. Repositories are created as private by default | bool | `"true"` | no |
 | repo\_name | The name of the repository | string | n/a | yes |
-| status\_check\_strict | Require branches to be up to date before merging | bool | `"true"` | no |
+| status\_checks\_strict | Require branches to be up to date before merging | bool | `"true"` | no |
 | topics | The list of topics for the repository | list(string) | `[]` | no |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

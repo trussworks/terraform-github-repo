@@ -21,7 +21,7 @@ resource "github_branch_protection" "main" {
   branch     = local.default_branch
 
   required_status_checks {
-    strict = var.strict_status_checks
+    strict = var.status_checks_strict
   }
 
   lifecycle {

@@ -20,7 +20,7 @@ variable "repo_name" {
   type        = string
 }
 
-variable "status_check_strict" {
+variable "status_checks_strict" {
   description = "Require branches to be up to date before merging"
   default     = true
   type        = bool
