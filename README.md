@@ -30,7 +30,7 @@ module "github_terraform_aws_ecs_service" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| archived | Specifies if the repository should be archived. | bool | `"false"` | no |
+| archived | Specifies if the repository should be archived | bool | `"false"` | no |
 | description | A description of the repository | string | n/a | yes |
 | homepage\_url | URL of a page describing the project | string | `""` | no |
 | private | Set to true to create a private repository. Repositories are created as private by default | bool | `"true"` | no |

@@ -16,7 +16,7 @@ variable "private" {
 }
 
 variable "archived" {
-  description = " Specifies if the repository should be archived."
+  description = "Specifies if the repository should be archived"
   default     = false
   type        = bool
 }
@@ -37,4 +37,3 @@ variable "topics" {
   default     = []
   type        = list(string)
 }
-
