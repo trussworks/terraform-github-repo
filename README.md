@@ -26,17 +26,28 @@ module "github_terraform_aws_ecs_service" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| github | n/a |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| archived | Specifies if the repository should be archived | bool | `"false"` | no |
-| description | A description of the repository | string | n/a | yes |
-| homepage\_url | URL of a page describing the project | string | `""` | no |
-| private | Set to true to create a private repository. Repositories are created as private by default | bool | `"true"` | no |
-| repo\_name | The name of the repository | string | n/a | yes |
-| status\_checks\_strict | Require branches to be up to date before merging | bool | `"true"` | no |
-| topics | The list of topics for the repository | list(string) | `[]` | no |
+|------|-------------|------|---------|:-----:|
+| archived | Specifies if the repository should be archived | `bool` | `false` | no |
+| description | A description of the repository | `string` | n/a | yes |
+| homepage\_url | URL of a page describing the project | `string` | `""` | no |
+| initalize\_repo | Set to true if Terraform will be creating the repo from scratch. | `bool` | `false` | no |
+| private | Set to true to create a private repository. Repositories are created as private by default | `bool` | `true` | no |
+| repo\_name | The name of the repository | `string` | n/a | yes |
+| status\_checks\_strict | Require branches to be up to date before merging | `bool` | `true` | no |
+| topics | The list of topics for the repository | `list(string)` | `[]` | no |
+
+## Outputs
+
+No output.
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

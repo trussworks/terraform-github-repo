@@ -15,6 +15,8 @@ resource "github_repository" "main" {
   has_downloads = true
   has_projects  = false
   has_wiki      = false
+
+  auto_init = var.initalize_repo
 }
 
 resource "github_branch_protection" "main" {
@@ -40,5 +42,7 @@ resource "github_branch_protection" "main" {
       required_status_checks.0.contexts
     ]
   }
+
+  depends_on = [github_repository.main]
 }
 
