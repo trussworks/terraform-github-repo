@@ -43,3 +43,9 @@ variable "initalize_repo" {
   default     = false
   type        = bool
 }
+
+variable "additional_master_push_users" {
+  description = "The list of usernames allowed to push to protected master branch."
+  default     = null
+  type        = list(string)
+}

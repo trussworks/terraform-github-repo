@@ -43,6 +43,10 @@ resource "github_branch_protection" "main" {
     ]
   }
 
+  restrictions {
+    users = var.additional_master_push_users
+  }
+
   depends_on = [github_repository.main]
 }
 
