@@ -38,7 +38,7 @@ variable "topics" {
   type        = list(string)
 }
 
-variable "initalize_repo" {
+variable "initialize_repo" {
   description = "Set to true if Terraform will be creating the repo from scratch."
   default     = false
   type        = bool

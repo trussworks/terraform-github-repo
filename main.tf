@@ -16,7 +16,7 @@ resource "github_repository" "main" {
   has_projects  = false
   has_wiki      = false
 
-  auto_init = var.initalize_repo
+  auto_init = var.initialize_repo
 }
 
 resource "github_branch_protection" "main" {
