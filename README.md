@@ -51,6 +51,15 @@ No output.
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
+## Note on auto-init
+
+We tried using the auto-init variable on the repo resource from the [GitHub Terraform Provider](https://www.terraform.io/docs/providers/github/index.html) and found that it is
+
+1. Not a fun workflow
+1. Still has outstanding issues/bugs related to it
+
+The behavior around what happens when you update or continually run Terraform with a resource with `auto-init = true` so we're not willing to deal with that.
+
 ## Developer Setup
 
 Install dependencies (macOS)
