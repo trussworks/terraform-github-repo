@@ -40,7 +40,6 @@ module "github_terraform_aws_ecs_service" {
 | archived | Specifies if the repository should be archived | `bool` | `false` | no |
 | description | A description of the repository | `string` | n/a | yes |
 | homepage\_url | URL of a page describing the project | `string` | `""` | no |
-| initialize\_repo | Set to true if Terraform will be creating the repo from scratch. | `bool` | `false` | no |
 | private | Set to true to create a private repository. Repositories are created as private by default | `bool` | `true` | no |
 | repo\_name | The name of the repository | `string` | n/a | yes |
 | status\_checks\_strict | Require branches to be up to date before merging | `bool` | `true` | no |
@@ -51,6 +50,15 @@ module "github_terraform_aws_ecs_service" {
 No output.
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## Note on auto-init
+
+We tried using the auto-init variable on the repo resource from the [GitHub Terraform Provider](https://www.terraform.io/docs/providers/github/index.html) and found that it is
+
+1. Not a fun workflow
+1. Still has outstanding issues/bugs related to it
+
+The behavior around what happens when you update or continually run Terraform with a resource with `auto-init = true` so we're not willing to deal with that.
 
 ## Developer Setup
 

@@ -38,12 +38,6 @@ variable "topics" {
   type        = list(string)
 }
 
-variable "initialize_repo" {
-  description = "Set to true if Terraform will be creating the repo from scratch."
-  default     = false
-  type        = bool
-}
-
 variable "additional_master_push_users" {
   description = "The list of usernames allowed to push to protected master branch."
   default     = null
