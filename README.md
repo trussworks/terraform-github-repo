@@ -26,6 +26,12 @@ module "github_terraform_aws_ecs_service" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12 |
+
 ## Providers
 
 | Name | Version |
@@ -35,8 +41,8 @@ module "github_terraform_aws_ecs_service" {
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
-| additional\_master\_push\_users | The list of usernames allowed to push to protected master branch. | `list(string)` | n/a | yes |
+|------|-------------|------|---------|:--------:|
+| additional\_master\_push\_users | The list of Github usernames allowed to push to protected master branch | `list(string)` | `[]` | no |
 | archived | Specifies if the repository should be archived | `bool` | `false` | no |
 | description | A description of the repository | `string` | n/a | yes |
 | homepage\_url | URL of a page describing the project | `string` | `""` | no |

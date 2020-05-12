@@ -39,7 +39,7 @@ variable "topics" {
 }
 
 variable "additional_master_push_users" {
-  description = "The list of usernames allowed to push to protected master branch."
-  default     = null
+  description = "The list of Github usernames allowed to push to protected master branch"
+  default     = []
   type        = list(string)
 }
