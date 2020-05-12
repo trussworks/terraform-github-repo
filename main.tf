@@ -1,6 +1,5 @@
 locals {
-  default_branch      = "master"
-  enable_restrictions = var.additional_master_push_users != ""
+  default_branch = "master"
 }
 
 resource "github_repository" "main" {
@@ -43,9 +42,9 @@ resource "github_branch_protection" "main" {
   }
 
   dynamic "restrictions" {
-    for_each = local.enable_bucket_logging ? [1] : []
+    for_each = var.additional_master_push_users
     content {
-      users = var.additional_master_push_users
+      users = restrictions.value
     }
   }
 

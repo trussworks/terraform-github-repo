@@ -42,7 +42,7 @@ module "github_terraform_aws_ecs_service" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| additional\_master\_push\_users | The list of Github usernames allowed to push to protected master branch | `list(string)` | `[]` | no |
+| additional\_master\_push\_users | The list of Github usernames allowed to push to the protected master branch | `list(string)` | `[]` | no |
 | archived | Specifies if the repository should be archived | `bool` | `false` | no |
 | description | A description of the repository | `string` | n/a | yes |
 | homepage\_url | URL of a page describing the project | `string` | `""` | no |
