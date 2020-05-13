@@ -44,7 +44,7 @@ resource "github_branch_protection" "main" {
   dynamic "restrictions" {
     for_each = var.additional_master_push_users
     content {
-      users = restrictions.value
+      users = [restrictions.value]
     }
   }
 
