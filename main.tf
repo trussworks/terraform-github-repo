@@ -41,8 +41,11 @@ resource "github_branch_protection" "main" {
     ]
   }
 
-  restrictions {
-    users = var.additional_master_push_users
+  dynamic "restrictions" {
+    for_each = var.additional_master_push_users
+    content {
+      users = restrictions.value
+    }
   }
 
   depends_on = [github_repository.main]
