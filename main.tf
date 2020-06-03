@@ -17,6 +17,14 @@ resource "github_repository" "main" {
   has_wiki      = false
 
   delete_branch_on_merge = var.delete_branch_on_merge
+
+  dynamic "template" {
+    for_each = var.template != null ? [var.template] : []
+    content {
+      owner      = template.value.owner
+      repository = template.value.repository
+    }
+  }
 }
 
 resource "github_branch_protection" "main" {

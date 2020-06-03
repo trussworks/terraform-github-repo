@@ -49,3 +49,12 @@ variable "delete_branch_on_merge" {
   default     = true
   type        = bool
 }
+
+variable "template" {
+  description = "Optional template to use for creating the repo"
+  default     = null
+  type = object({
+    owner      = string
+    repository = string
+  })
+}
