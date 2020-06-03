@@ -44,11 +44,13 @@ module "github_terraform_aws_ecs_service" {
 |------|-------------|------|---------|:--------:|
 | additional\_master\_push\_users | The list of Github usernames allowed to push to the protected master branch | `list(string)` | `[]` | no |
 | archived | Specifies if the repository should be archived | `bool` | `false` | no |
+| delete\_branch\_on\_merge | Delete branches upon merge | `bool` | `true` | no |
 | description | A description of the repository | `string` | n/a | yes |
 | homepage\_url | URL of a page describing the project | `string` | `""` | no |
 | private | Set to true to create a private repository. Repositories are created as private by default | `bool` | `true` | no |
 | repo\_name | The name of the repository | `string` | n/a | yes |
 | status\_checks\_strict | Require branches to be up to date before merging | `bool` | `true` | no |
+| template | Optional template to use for creating the repo | <pre>object({<br>    owner      = string<br>    repository = string<br>  })</pre> | `null` | no |
 | topics | The list of topics for the repository | `list(string)` | `[]` | no |
 
 ## Outputs
