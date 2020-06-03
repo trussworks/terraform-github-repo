@@ -43,3 +43,9 @@ variable "additional_master_push_users" {
   default     = []
   type        = list(string)
 }
+
+variable "delete_branch_on_merge" {
+  description = "Delete branches upon merge"
+  default     = true
+  type        = bool
+}

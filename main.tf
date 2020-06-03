@@ -15,6 +15,8 @@ resource "github_repository" "main" {
   has_downloads = true
   has_projects  = false
   has_wiki      = false
+
+  delete_branch_on_merge = var.delete_branch_on_merge
 }
 
 resource "github_branch_protection" "main" {
