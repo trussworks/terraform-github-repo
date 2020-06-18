@@ -3,6 +3,12 @@ variable "description" {
   type        = string
 }
 
+variable "default_branch_name" {
+  description = "The default branch for the repo. Branch protection settings will be applied to the branch with this name. Currently defaults to `master`."
+  type        = string
+  default     = "master"
+}
+
 variable "homepage_url" {
   description = "URL of a page describing the project"
   default     = ""
