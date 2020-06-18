@@ -44,6 +44,7 @@ module "github_terraform_aws_ecs_service" {
 |------|-------------|------|---------|:--------:|
 | additional\_master\_push\_users | The list of Github usernames allowed to push to the protected master branch | `list(string)` | `[]` | no |
 | archived | Specifies if the repository should be archived | `bool` | `false` | no |
+| default\_branch\_name | The default branch for the repo. Branch protection settings will be applied to the branch with this name. Currently defaults to `master`. | `string` | `"master"` | no |
 | delete\_branch\_on\_merge | Delete branches upon merge | `bool` | `true` | no |
 | description | A description of the repository | `string` | n/a | yes |
 | homepage\_url | URL of a page describing the project | `string` | `""` | no |

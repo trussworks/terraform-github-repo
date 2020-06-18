@@ -1,7 +1,3 @@
-locals {
-  default_branch = "master"
-}
-
 resource "github_repository" "main" {
   name        = var.repo_name
   description = var.description
@@ -16,6 +12,7 @@ resource "github_repository" "main" {
   has_projects  = false
   has_wiki      = false
 
+  default_branch_name    = var.default_branch_name
   delete_branch_on_merge = var.delete_branch_on_merge
 
   dynamic "template" {
@@ -29,7 +26,7 @@ resource "github_repository" "main" {
 
 resource "github_branch_protection" "main" {
   repository = github_repository.main.name
-  branch     = local.default_branch
+  branch     = var.default_branch_name
 
   enforce_admins = false
 
