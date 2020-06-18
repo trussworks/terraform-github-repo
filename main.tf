@@ -12,7 +12,7 @@ resource "github_repository" "main" {
   has_projects  = false
   has_wiki      = false
 
-  default_branch_name    = var.default_branch_name
+  default_branch         = var.default_branch_name
   delete_branch_on_merge = var.delete_branch_on_merge
 
   dynamic "template" {
