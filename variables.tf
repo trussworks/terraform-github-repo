@@ -56,6 +56,12 @@ variable "delete_branch_on_merge" {
   type        = bool
 }
 
+variable "is_template" {
+  description = "Tell GitHub that this is a template repository"
+  default     = false
+  type        = bool
+}
+
 variable "template" {
   description = "Optional template to use for creating the repo"
   default     = null

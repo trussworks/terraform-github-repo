@@ -12,6 +12,8 @@ resource "github_repository" "main" {
   has_projects  = false
   has_wiki      = false
 
+  is_template = var.is_template
+
   default_branch         = var.default_branch_name
   delete_branch_on_merge = var.delete_branch_on_merge
 
