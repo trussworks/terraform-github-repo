@@ -48,6 +48,7 @@ module "github_terraform_aws_ecs_service" {
 | delete\_branch\_on\_merge | Delete branches upon merge | `bool` | `true` | no |
 | description | A description of the repository | `string` | n/a | yes |
 | homepage\_url | URL of a page describing the project | `string` | `""` | no |
+| is\_template | Tell GitHub that this is a template repository | `bool` | `false` | no |
 | private | Set to true to create a private repository. Repositories are created as private by default | `bool` | `true` | no |
 | repo\_name | The name of the repository | `string` | n/a | yes |
 | status\_checks\_strict | Require branches to be up to date before merging | `bool` | `true` | no |
