@@ -1,7 +1,7 @@
 terraform {
-  required_version = "~> 0.12.0"
+  required_version = ">= 0.12.7, < 0.14"
 
   required_providers {
-    github = "~> 2.8.0"
+    github = "~> 2.9.2"
   }
 }
