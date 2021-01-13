@@ -30,7 +30,7 @@ module "github_terraform_aws_ecs_service" {
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12.7, < 0.14 |
+| terraform | >= 0.13.0 |
 | github | ~> 2.9.2 |
 
 ## Providers
