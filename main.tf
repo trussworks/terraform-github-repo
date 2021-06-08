@@ -38,8 +38,6 @@ resource "github_branch_protection" "main" {
 
   required_pull_request_reviews {
     dismiss_stale_reviews           = false
-    dismissal_teams                 = []
-    dismissal_users                 = []
     require_code_owner_reviews      = false
     required_approving_review_count = 1
   }
@@ -50,7 +48,7 @@ resource "github_branch_protection" "main" {
     ]
   }
 
-  dynamic "restrictions" {
+  dynamic "push_restrictions" {
     for_each = var.additional_master_push_users
     content {
       users = [restrictions.value]
