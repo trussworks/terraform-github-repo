@@ -26,7 +26,7 @@ resource "github_repository" "main" {
   }
 }
 
-resource "github_branch_protection" "main" {
+resource "github_branch_protection_v3" "main" {
   repository = github_repository.main.name
   branch     = var.default_branch_name
 
@@ -38,6 +38,8 @@ resource "github_branch_protection" "main" {
 
   required_pull_request_reviews {
     dismiss_stale_reviews           = false
+    dismissal_users                 = []
+    dismissal_teams                 = []
     require_code_owner_reviews      = false
     required_approving_review_count = 1
   }
@@ -48,7 +50,7 @@ resource "github_branch_protection" "main" {
     ]
   }
 
-  dynamic "push_restrictions" {
+  dynamic "restrictions" {
     for_each = var.additional_master_push_users
     content {
       users = [restrictions.value]
