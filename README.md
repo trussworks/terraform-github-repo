@@ -30,36 +30,46 @@ module "github_terraform_aws_ecs_service" {
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.13.0 |
-| github | ~> 2.9.2 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
+| <a name="requirement_github"></a> [github](#requirement\_github) | >= 4.10.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| github | ~> 2.9.2 |
+| <a name="provider_github"></a> [github](#provider\_github) | >= 4.10.0 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [github_branch_protection.main](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/branch_protection) | resource |
+| [github_repository.main](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/repository) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| additional\_master\_push\_users | The list of Github usernames allowed to push to the protected master branch | `list(string)` | `[]` | no |
-| archived | Specifies if the repository should be archived | `bool` | `false` | no |
-| default\_branch\_name | The default branch for the repo. Branch protection settings will be applied to the branch with this name. Currently defaults to `master`. | `string` | `"master"` | no |
-| delete\_branch\_on\_merge | Delete branches upon merge | `bool` | `true` | no |
-| description | A description of the repository | `string` | n/a | yes |
-| homepage\_url | URL of a page describing the project | `string` | `""` | no |
-| is\_template | Tell GitHub that this is a template repository | `bool` | `false` | no |
-| private | Set to true to create a private repository. Repositories are created as private by default | `bool` | `true` | no |
-| repo\_name | The name of the repository | `string` | n/a | yes |
-| status\_checks\_strict | Require branches to be up to date before merging | `bool` | `true` | no |
-| template | Optional template to use for creating the repo | <pre>object({<br>    owner      = string<br>    repository = string<br>  })</pre> | `null` | no |
-| topics | The list of topics for the repository | `list(string)` | `[]` | no |
+| <a name="input_additional_master_push_users"></a> [additional\_master\_push\_users](#input\_additional\_master\_push\_users) | The list of Github usernames allowed to push to the protected master branch | `list(string)` | `[]` | no |
+| <a name="input_archived"></a> [archived](#input\_archived) | Specifies if the repository should be archived | `bool` | `false` | no |
+| <a name="input_default_branch_name"></a> [default\_branch\_name](#input\_default\_branch\_name) | The default branch for the repo. Branch protection settings will be applied to the branch with this name. Currently defaults to `master`. | `string` | `"master"` | no |
+| <a name="input_delete_branch_on_merge"></a> [delete\_branch\_on\_merge](#input\_delete\_branch\_on\_merge) | Delete branches upon merge | `bool` | `true` | no |
+| <a name="input_description"></a> [description](#input\_description) | A description of the repository | `string` | n/a | yes |
+| <a name="input_homepage_url"></a> [homepage\_url](#input\_homepage\_url) | URL of a page describing the project | `string` | `""` | no |
+| <a name="input_is_template"></a> [is\_template](#input\_is\_template) | Tell GitHub that this is a template repository | `bool` | `false` | no |
+| <a name="input_private"></a> [private](#input\_private) | Set to true to create a private repository. Repositories are created as private by default | `bool` | `true` | no |
+| <a name="input_repo_name"></a> [repo\_name](#input\_repo\_name) | The name of the repository | `string` | n/a | yes |
+| <a name="input_status_checks_strict"></a> [status\_checks\_strict](#input\_status\_checks\_strict) | Require branches to be up to date before merging | `bool` | `true` | no |
+| <a name="input_template"></a> [template](#input\_template) | Optional template to use for creating the repo | <pre>object({<br>    owner      = string<br>    repository = string<br>  })</pre> | `null` | no |
+| <a name="input_topics"></a> [topics](#input\_topics) | The list of topics for the repository | `list(string)` | `[]` | no |
 
 ## Outputs
 
-No output.
-
+No outputs.
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Note on auto-init
