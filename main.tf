@@ -3,7 +3,7 @@ resource "github_repository" "main" {
   description = var.description
 
   homepage_url = var.homepage_url
-  private      = var.private
+  visibility   = var.private ? "private" : "public"
   archived     = var.archived
   topics       = var.topics
 
