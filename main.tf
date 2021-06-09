@@ -3,7 +3,7 @@ resource "github_repository" "main" {
   description = var.description
 
   homepage_url = var.homepage_url
-  private      = var.private
+  visibility   = var.private ? "private" : "public"
   archived     = var.archived
   topics       = var.topics
 
@@ -14,7 +14,6 @@ resource "github_repository" "main" {
 
   is_template = var.is_template
 
-  default_branch         = var.default_branch_name
   delete_branch_on_merge = var.delete_branch_on_merge
 
   dynamic "template" {
@@ -26,11 +25,22 @@ resource "github_repository" "main" {
   }
 }
 
-resource "github_branch_protection_v3" "main" {
+resource "github_branch" "main" {
   repository = github_repository.main.name
   branch     = var.default_branch_name
+}
 
-  enforce_admins = false
+resource "github_branch_default" "main" {
+  repository = github_repository.main.name
+  branch     = github_branch.main.branch
+}
+
+resource "github_branch_protection" "main" {
+  repository_id = github_repository.main.node_id
+  pattern       = var.default_branch_name
+
+  enforce_admins    = false
+  push_restrictions = var.additional_master_push_users
 
   required_status_checks {
     strict = var.status_checks_strict
@@ -38,8 +48,6 @@ resource "github_branch_protection_v3" "main" {
 
   required_pull_request_reviews {
     dismiss_stale_reviews           = false
-    dismissal_users                 = []
-    dismissal_teams                 = []
     require_code_owner_reviews      = false
     required_approving_review_count = 1
   }
@@ -50,13 +58,6 @@ resource "github_branch_protection_v3" "main" {
     ]
   }
 
-  dynamic "restrictions" {
-    for_each = var.additional_master_push_users
-    content {
-      users = [restrictions.value]
-    }
-  }
-
-  depends_on = [github_repository.main]
+  depends_on = [github_branch_default.main]
 }
 
