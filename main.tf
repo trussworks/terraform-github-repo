@@ -35,11 +35,12 @@ resource "github_branch_default" "main" {
   branch     = github_branch.main.branch
 }
 
-resource "github_branch_protection_v3" "main" {
-  repository = github_repository.main.name
-  branch     = var.default_branch_name
+resource "github_branch_protection" "main" {
+  repository_id = github_repository.main.node_id
+  pattern       = var.default_branch_name
 
-  enforce_admins = false
+  enforce_admins    = false
+  push_restrictions = var.additional_master_push_users
 
   required_status_checks {
     strict = var.status_checks_strict
@@ -47,8 +48,6 @@ resource "github_branch_protection_v3" "main" {
 
   required_pull_request_reviews {
     dismiss_stale_reviews           = false
-    dismissal_users                 = []
-    dismissal_teams                 = []
     require_code_owner_reviews      = false
     required_approving_review_count = 1
   }
@@ -57,13 +56,6 @@ resource "github_branch_protection_v3" "main" {
     ignore_changes = [
       required_status_checks.0.contexts
     ]
-  }
-
-  dynamic "restrictions" {
-    for_each = var.additional_master_push_users
-    content {
-      users = [restrictions.value]
-    }
   }
 
   depends_on = [github_branch_default.main]
