@@ -47,6 +47,8 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [github_branch.main](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/branch) | resource |
+| [github_branch_default.main](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/branch_default) | resource |
 | [github_branch_protection_v3.main](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/branch_protection_v3) | resource |
 | [github_repository.main](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/repository) | resource |
 

@@ -14,7 +14,6 @@ resource "github_repository" "main" {
 
   is_template = var.is_template
 
-  default_branch         = var.default_branch_name
   delete_branch_on_merge = var.delete_branch_on_merge
 
   dynamic "template" {
@@ -24,6 +23,16 @@ resource "github_repository" "main" {
       repository = template.value.repository
     }
   }
+}
+
+resource "github_branch" "main" {
+  repository = github_repository.main.name
+  branch     = var.default_branch_name
+}
+
+resource "github_branch_default" "main" {
+  repository = github_repository.main.name
+  branch     = github_branch.main.branch
 }
 
 resource "github_branch_protection_v3" "main" {
@@ -57,6 +66,6 @@ resource "github_branch_protection_v3" "main" {
     }
   }
 
-  depends_on = [github_repository.main]
+  depends_on = [github_branch_default.main]
 }
 
