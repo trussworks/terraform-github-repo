@@ -4,9 +4,9 @@ variable "description" {
 }
 
 variable "default_branch_name" {
-  description = "The default branch for the repo. Branch protection settings will be applied to the branch with this name. Currently defaults to `master`."
+  description = "The default branch for the repo. Branch protection settings will be applied to the branch with this name. Currently defaults to `main`."
   type        = string
-  default     = "master"
+  default     = "main"
 }
 
 variable "homepage_url" {
@@ -44,8 +44,8 @@ variable "topics" {
   type        = list(string)
 }
 
-variable "additional_master_push_users" {
-  description = "The list of Github usernames allowed to push to the protected master branch"
+variable "additional_push_users" {
+  description = "The list of Github usernames allowed to push to the protected main branch"
   default     = []
   type        = list(string)
 }

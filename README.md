@@ -56,9 +56,9 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_additional_master_push_users"></a> [additional\_master\_push\_users](#input\_additional\_master\_push\_users) | The list of Github usernames allowed to push to the protected master branch | `list(string)` | `[]` | no |
+| <a name="input_additional_push_users"></a> [additional\_push\_users](#input\_additional\_push\_users) | The list of Github usernames allowed to push to the protected main branch | `list(string)` | `[]` | no |
 | <a name="input_archived"></a> [archived](#input\_archived) | Specifies if the repository should be archived | `bool` | `false` | no |
-| <a name="input_default_branch_name"></a> [default\_branch\_name](#input\_default\_branch\_name) | The default branch for the repo. Branch protection settings will be applied to the branch with this name. Currently defaults to `master`. | `string` | `"master"` | no |
+| <a name="input_default_branch_name"></a> [default\_branch\_name](#input\_default\_branch\_name) | The default branch for the repo. Branch protection settings will be applied to the branch with this name. Currently defaults to `main`. | `string` | `"main"` | no |
 | <a name="input_delete_branch_on_merge"></a> [delete\_branch\_on\_merge](#input\_delete\_branch\_on\_merge) | Delete branches upon merge | `bool` | `true` | no |
 | <a name="input_description"></a> [description](#input\_description) | A description of the repository | `string` | n/a | yes |
 | <a name="input_homepage_url"></a> [homepage\_url](#input\_homepage\_url) | URL of a page describing the project | `string` | `""` | no |
