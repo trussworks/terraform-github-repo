@@ -40,7 +40,7 @@ resource "github_branch_protection" "main" {
   pattern       = var.default_branch_name
 
   enforce_admins    = false
-  push_restrictions = var.additional_master_push_users
+  push_restrictions = var.additional_push_users
 
   required_status_checks {
     strict = var.status_checks_strict
