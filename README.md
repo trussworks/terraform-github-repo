@@ -20,8 +20,8 @@ module "github_terraform_aws_ecs_service" {
     "ecs-service",
   ]
 
-  private             = false
-  status_check_strict = true
+  private              = false
+  status_checks_strict = true
 }
 ```
 
