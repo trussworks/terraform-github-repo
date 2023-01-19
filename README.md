@@ -30,14 +30,14 @@ module "github_terraform_aws_ecs_service" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
-| <a name="requirement_github"></a> [github](#requirement\_github) | >= 4.10.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.6 |
+| <a name="requirement_github"></a> [github](#requirement\_github) | >= 5.3.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_github"></a> [github](#provider\_github) | >= 4.10.0 |
+| <a name="provider_github"></a> [github](#provider\_github) | >= 5.3.0 |
 
 ## Modules
 
