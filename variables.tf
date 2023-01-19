@@ -63,10 +63,34 @@ variable "is_template" {
 }
 
 variable "template" {
-  description = "Optional template to use for creating the repo"
+  description = "Template to use for creating the repo"
   default     = null
   type = object({
     owner      = string
     repository = string
   })
+}
+
+variable "has_issues" {
+  description = "Set to false to disable the GitHub Issues features on the repository."
+  default     = true
+  type        = bool
+}
+
+variable "has_discussions" {
+  description = "Set to true to enable GitHub Discussions on the repository."
+  default     = false
+  type        = bool
+}
+
+variable "has_projects" {
+  description = "Set to true to enable the GitHub Projects features on the repository."
+  default     = false
+  type        = bool
+}
+
+variable "has_wiki" {
+  description = "Set to true to enable the GitHub Wiki features on the repository."
+  default     = false
+  type        = bool
 }
