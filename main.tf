@@ -7,10 +7,11 @@ resource "github_repository" "main" {
   archived     = var.archived
   topics       = var.topics
 
-  has_issues    = var.private ? false : true
-  has_downloads = true
-  has_projects  = false
-  has_wiki      = false
+  has_issues      = var.has_issues
+  has_downloads   = true
+  has_discussions = var.has_discussions
+  has_projects    = var.has_projects
+  has_wiki        = var.has_wiki
 
   is_template = var.is_template
 
