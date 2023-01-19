@@ -63,7 +63,7 @@ variable "is_template" {
 }
 
 variable "template" {
-  description = "Optional template to use for creating the repo"
+  description = "Template to use for creating the repo"
   default     = null
   type = object({
     owner      = string
