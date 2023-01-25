@@ -1,4 +1,6 @@
-Set up a github repository with standard config.
+# DEPRECIATION NOTICE
+This module has been deprecated and is no longer maintained. Should you need to continue to use it, please fork the repository. Thank you.
+ Set up a github repository with standard config.
 
 Limited options are provided as this module is for configuring a repository using opinionated settings. If more control is needed, use the [terraform github_repository](https://www.terraform.io/docs/providers/github/r/repository.html) directly.
 
